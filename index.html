@@ -1,12 +1,61 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  </head>
-  <body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login & Signup</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-500 to-teal-400">
+  
+  <div class="w-full max-w-md bg-white p-8 rounded-2xl shadow-lg">
+    <!-- Tabs -->
+    <div class="flex justify-around mb-6">
+      <button id="loginTab" class="text-lg font-semibold text-blue-500 border-b-2 border-blue-500 pb-2 w-1/2">Login</button>
+      <button id="signupTab" class="text-lg font-semibold text-gray-500 hover:text-blue-500 pb-2 w-1/2">Signup</button>
+    </div>
 
-    <script src="./script.js"></script>
-  </body>
+    <!-- Login Form -->
+    <form id="loginForm" class="space-y-4">
+      <h2 class="text-2xl font-bold text-center text-gray-700">Login</h2>
+      <input type="email" placeholder="Email" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-400" required>
+      <input type="password" placeholder="Password" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-400" required>
+      <button class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition">Login</button>
+    </form>
+
+    <!-- Signup Form -->
+    <form id="signupForm" class="space-y-4 hidden">
+      <h2 class="text-2xl font-bold text-center text-gray-700">Signup</h2>
+      <input type="text" placeholder="Full Name" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-teal-400" required>
+      <input type="email" placeholder="Email" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-teal-400" required>
+      <input type="password" placeholder="Password" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-teal-400" required>
+      <input type="password" placeholder="Confirm Password" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-teal-400" required>
+      <button class="w-full bg-teal-500 text-white py-2 rounded-lg hover:bg-teal-600 transition">Signup</button>
+    </form>
+  </div>
+
+  <script>
+    const loginTab = document.getElementById('loginTab');
+    const signupTab = document.getElementById('signupTab');
+    const loginForm = document.getElementById('loginForm');
+    const signupForm = document.getElementById('signupForm');
+
+    loginTab.addEventListener('click', () => {
+      loginForm.classList.remove('hidden');
+      signupForm.classList.add('hidden');
+      loginTab.classList.add('text-blue-500','border-blue-500','border-b-2');
+      signupTab.classList.remove('text-blue-500','border-blue-500','border-b-2');
+      signupTab.classList.add('text-gray-500');
+    });
+
+    signupTab.addEventListener('click', () => {
+      signupForm.classList.remove('hidden');
+      loginForm.classList.add('hidden');
+      signupTab.classList.add('text-blue-500','border-blue-500','border-b-2');
+      loginTab.classList.remove('text-blue-500','border-blue-500','border-b-2');
+      loginTab.classList.add('text-gray-500');
+    });
+  </script>
+  <script src="./script.js"></script>
+</body>
 </html>
