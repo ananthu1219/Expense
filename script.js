@@ -1,33 +1,27 @@
 function SignUp(){
-// Sign Up Function
+
 document.getElementById("signupForm").addEventListener("submit", function (e) {
-  e.preventDefault(); // stop form refresh
+  e.preventDefault();
 
   let name = document.getElementById("name").value;
   let email = document.getElementById("S-Email").value;
   let pass = document.getElementById("S-pass").value;
 
-  // create a user object
   let user = {
     name: name,
     email: email,
     password: pass
   };
 
-  // check if users already exist in localStorage
   let users = JSON.parse(localStorage.getItem("users")) || [];
 
-  // check if email already exists
   let exists = users.some(u => u.email === email);
   if (exists) {
     alert("Email already registered!");
     return;
   }
-
-  // add new user to array
   users.push(user);
 
-  // save back to localStorage
   localStorage.setItem("users", JSON.stringify(users));
 
   alert("Signup successful!");
@@ -37,6 +31,7 @@ document.getElementById("signupForm").addEventListener("submit", function (e) {
 }
 
 function Login(){
+    
     document.getElementById("loginForm").addEventListener("submit", function (e) {
   e.preventDefault();
     let email=document.getElementById('email').value
@@ -52,7 +47,6 @@ function Login(){
     } else {
         alert("Invalid email or password!");
     }
-
     document.getElementById("loginForm").reset();
 });
     
