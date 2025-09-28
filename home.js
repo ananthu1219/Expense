@@ -102,8 +102,16 @@ function clearAll() {
   document.getElementById("incomeData").innerHTML = "";
   document.getElementById("expenseData").innerHTML = "";
 
+  // Clear the pie chart
+  if (expenseChart) {
+    expenseChart.data.labels = [];
+    expenseChart.data.datasets[0].data = [];
+    expenseChart.update();
+  }
+
   alert("All data cleared!");
 }
+
 
 function Logout() {
   if (confirm("Are you sure you want to logout?")) {
@@ -111,6 +119,55 @@ function Logout() {
     window.location = "/index.html";
   }
 }
+
+// Initialize the pie chart
+let expenseChart;
+
+function updateExpenseChart() {
+    let currentUser = JSON.parse(localStorage.getItem("currentUser")) || {expense: []};
+
+    const labels = currentUser.expense.map(e => e.type);
+    const data = currentUser.expense.map(e => e.amount);
+
+    const ctx = document.getElementById('expenseChart').getContext('2d');
+
+    if(expenseChart) {
+        expenseChart.data.labels = labels;
+        expenseChart.data.datasets[0].data = data;
+        expenseChart.update();
+    } else {
+        expenseChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Expenses',
+                    data: data,
+                    backgroundColor: [
+                        '#f87171','#60a5fa','#facc15','#34d399','#a78bfa',
+                        '#f472b6','#f97316','#3b82f6','#16a34a','#9333ea'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+    }
+}
+
+// Update chart whenever an expense is added
+const originalExpense = expense;
+expense = function() {
+    originalExpense();
+    updateExpenseChart();
+}
+
+// Render chart on page load
+window.onload = function() {
+    updateExpenseChart();
+}
+
 
 let welcome = document.getElementById("welcome");
 names=JSON.parse(localStorage.getItem("users"));
