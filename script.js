@@ -43,11 +43,20 @@ function Login(){
     if (validUser) {
         alert("Login successful! Welcome, " + validUser.name);
         window.location = "/home.html";
+        let currentUser = {
+          name: validUser.name,
+          email: validUser.email,
+          balance:[],
+          income:[],
+          expense:[]
+        }
+        localStorage.setItem("currentUser", JSON.stringify(currentUser));
 
     } else {
         alert("Invalid email or password!");
     }
     document.getElementById("loginForm").reset();
 });
+
     
 }

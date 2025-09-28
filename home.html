@@ -16,47 +16,51 @@
             <div class="flex flex-col items-center">
             <div class="flex flex-col items-center bg-yellow-200 shadow-lg p-6 rounded mt-3">
                 <h1>Total Balance</h1>
-                <h1>Rs 0/-</h1>
+                <h1>Rs <span id="balance">0</span>/-</h1>
             </div>
             <h1 class="mt-2">Add Income</h1>
             <input 
             type="text" 
+            id="incomeType"
             placeholder="Enter Income type"
             class="w-full ps-1 py-1 border border-gray-300 rounded-lg my-2 focus:ring-2 focus:ring-indigo-500 focus:outline-none"
             />
             <input 
             type="number" 
+            id="incomeAmount"
             placeholder="Enter Amount"
             class="w-full ps-1 py-1 border border-gray-300 rounded-lg my-2 focus:ring-2 focus:ring-indigo-500 focus:outline-none"
             />
-            <button class="w-full bg-green-500 rounded shadow-lg py-1">Add Income</button>
+            <button onclick="income()" class="w-full bg-green-500 rounded shadow-lg py-1">Add Income</button>
             </div>
             <div class="flex flex-col items-center">
             <div class="flex flex-col items-center shadow-lg bg-blue-200 p-6 rounded mt-3">
-                <h1>Total Balance</h1>
-                <h1>Rs 0/-</h1>
+                <h1>Total Expense</h1>
+                <h1>Rs <span id="expense">0</span>/-</h1>
             </div>
             <h1 class="mt-2">Add Expense</h1>
             <input 
-            type="text" 
+            type="text"
+            id="expenseType" 
             placeholder="Enter Expense type"
             class="w-full ps-1 py-1 border border-gray-300 rounded-lg my-2 focus:ring-2 focus:ring-indigo-500 focus:outline-none"
             />
             <input 
-            type="number" 
+            type="number"
+            id="expenseAmount"
             placeholder="Enter Amount"
             class="w-full ps-1 py-1 border border-gray-300 rounded-lg my-2 focus:ring-2 focus:ring-indigo-500 focus:outline-none"
             />
-            <button class="w-full bg-blue-500 rounded shadow-lg py-1">Add Expenses</button>
+            <button onclick="expense()" class="w-full bg-blue-500 rounded shadow-lg py-1">Add Expenses</button>
             </div>
            
         </div>
         <div class="flex justify-center mt-4">
-            <button onclick="clear()" class="px-3 py-1 bg-red-600 text-white rounded-lg shadow hover:bg-red-700 transition">
+            <button onclick="clear()" class="px-3 py-1 bg-red-600 text-white mb-6 rounded-lg shadow hover:bg-red-700 transition">
             Clear All
             </button>
         </div>
-</div>
+    
      <script src="./home.js"></script>
 </body>
 </html>

@@ -1,3 +1,13 @@
+function expense(){
+    expensetype=document.getElementById("expensetype").value
+    expenseamount=document.getElementById("expenseamount").value
+}
+
+function income(){
+    incometype=document.getElementById("incometype").value
+    incomeamount=document.getElementById("incomeamount").value
+}
+
 function clear(){
     localStorage.clear();
     alert("All data cleared!");
