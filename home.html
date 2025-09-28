@@ -6,7 +6,38 @@
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    
+<body class="bg-green-100 flex flex-col items-center min-h-screen">
+    <div class="flex flex-row justify-between w-full items-center">
+        <h1 class="m-2">Welcome</h1>
+        <button class="bg-white m-2 p-1 px-2 rounded text-red-500 border border-red-400">Logout</button>
+    </div>
+    <div class="bg-green-200 m-6 w-[1000px] shadow-lg rounded">
+        <div class="flex flex-row justify-around p-4">
+            <div class="flex flex-col items-center">
+            <div class="flex flex-col items-center bg-yellow-200 p-6 rounded mt-3">
+                <h1>Total Balance</h1>
+                <h1>Rs 0/-</h1>
+            </div>
+            <h1 class="mt-2">Add Income</h1>
+            <input 
+            type="text" 
+            placeholder="Enter Income type"
+            class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none"
+            />
+            </div>
+            <div class="flex flex-col items-center">
+            <div class="flex flex-col items-center bg-blue-200 p-6 rounded mt-3">
+                <h1>Total Balance</h1>
+                <h1>Rs 0/-</h1>
+            </div>
+            <h1 class="mt-2">Add Expense</h1>
+            <input 
+            type="text" 
+            placeholder="Enter Income type"
+            class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none"
+            />
+            </div>
+        </div>
+    </div>
 </body>
 </html>
