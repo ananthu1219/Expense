@@ -105,11 +105,13 @@ function clearAll() {
   alert("All data cleared!");
 }
 
-
-
 function Logout() {
   if (confirm("Are you sure you want to logout?")) {
     localStorage.removeItem("users");
     window.location = "/index.html";
   }
 }
+
+let welcome = document.getElementById("welcome");
+names=JSON.parse(localStorage.getItem("users"));
+welcome.innerHTML = `welcome ${names[0].name}`;
